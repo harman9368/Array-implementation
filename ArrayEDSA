@@ -1,0 +1,95 @@
+public class ArrayEDSA {
+    int arr[];
+
+    ArrayEDSA()
+
+    {
+        arr = new int[5];
+        for(int i=0;i< arr.length;i++){
+           //wrapper class
+            arr[i]= Integer.MIN_VALUE;
+        }
+    }
+    //Method to traverse the array
+    public void traverse()
+    {
+        for (int res:arr)
+              {
+                  System.out.println(res);
+        }
+    }
+    //Method to insert the values in the array
+    //public void insert(int index,int value)
+    public void insert(int index,int value)throws ArrayIndexOutOfBoundsException
+    {
+        //index =1
+        //value 56
+        //try
+        //{
+            if(arr[index] == Integer.MIN_VALUE)
+            {
+                arr[index]= value;
+            }
+            else
+            {
+                System.out.println("already filled");
+            }
+       // }catch (ArrayIndexOutOfBoundsException obj)
+        //{
+          //  System.out.println("invalid index");
+        //}
+    }
+    //Method to print the specific value from the array
+    public void getvalue(int index)
+    {
+        try
+        {
+            System.out.println(arr[index]);
+        }catch(ArrayIndexOutOfBoundsException obj){
+            System.out.println("invalid index");
+        }
+    }
+    //Search a value in the array
+    public void search(int value){
+        for (int i = 0; i < arr.length ; i++) {
+            if(arr[i]== value){
+                System.out.println("value found");
+                return;
+            }
+        }
+        System.out.println("value not found");
+    }
+    //Method to delete the values from the array
+    //public void delete(int value)
+   // {
+     //
+    //}
+    public void delete(int index)
+    {
+        try
+        {
+            arr[index]= Integer.MIN_VALUE;
+        }catch(ArrayIndexOutOfBoundsException obj)
+        {
+            System.out.println("invalid index");
+        }
+    }
+    //Method to delete the array
+    public void deletearray()
+    {
+        arr= null;
+
+    }
+}
+
+class EFTest {
+    public static void main(String[] args) {
+        ArrayEDSA obj1 = new ArrayEDSA();
+        try {
+            obj1.traverse();
+            obj1.insert(2, 56);
+        } catch (ArrayIndexOutOfBoundsException obj) {
+            System.out.println("invalid index");
+        }
+    }
+}
